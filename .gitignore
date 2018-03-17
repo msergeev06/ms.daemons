@@ -1,0 +1,4 @@
+/daemons/*
+!/daemons/.daemon_blank.php
+!/daemons/.htaccess
+/installed
