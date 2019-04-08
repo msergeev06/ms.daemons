@@ -25,7 +25,7 @@ if (!Loader::includeModule('ms.daemons')
 	/**<-- Добавьте сюда свой модуль, для которого создается демон */
 )
 {
-	Logs::write2Log('Error start daemon ['.$daemonName.']. Need modules not included');
+	Logs::setWarning('Ошибка запуска демона ['.$daemonName.']. Необходимый модуль [ms.daemon] не установлен');
 	return;
 }
 
@@ -52,6 +52,7 @@ while (1)
 if (!$bStopped)
 {
 	Lib\Daemons::stopped($daemonName);
-	Lib\Daemons::log($daemonName,"Daemon unexpected exit");
+	Lib\Daemons::log($daemonName,"Неожиданное завершение работы демона");
+	Logs::setWarning('Неожиданное завершение работы демона ['.$daemonName.']');
 }
 /* end Общие команды для всех демонов*/
